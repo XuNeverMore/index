@@ -1,0 +1,67 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    
+}
+.div_bg{
+    top: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    
+}
+.img_bg{
+    margin: auto;
+    width: auto;
+    height: 100%;
+}
+.container{
+    margin: auto;
+    background-image: url("C:/Users/chuanting.xu/Documents/html/my_nav/img/bg.jpg");
+    background-repeat: no-repeat;
+    /* background-size: 100% 100%; */
+    background-position: center center;
+    overflow: auto;
+}
+.center{
+    margin: auto;
+    width: 80%;
+    padding: .3125rem;
+}
+div{
+    align-self: center;
+}
+.item{ 
+    /* border: 3px solid #f12020; */
+    /* border-radius: 15px; */
+    /* width: 48%; */
+    background-color: rgba(16, 112, 16, 0.6);
+    margin: 5px;
+    padding: 10px 25px;
+    float: left;
+} 
+.item:hover{
+    background-color: white;
+}
+.item a{
+    color: aliceblue;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.75rem;
+    text-decoration: none;
+}
+a:hover{
+    color: black;
+    /* text-decoration: underline; */
+}
+.main{
+    height: 100%;
+    text-align: center;
+    
+}
+.header_img{
+    border-radius: 50%;
+    margin-top: 1.875rem;
+    margin-bottom: 1.25rem;
+    height: 6.25rem;
+}
