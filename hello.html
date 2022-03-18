@@ -1,50 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>我的导航</title>
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
-        <script>
-            var netConfig = 
+
+<head>
+    <meta charset="utf-8">
+    <title>我的导航</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script>
+        var netConfig =
             [{
-    "net": "Android",
-    "link": "https://developer.android.google.cn/"
-},
-{
-    "net": "Github",
-    "link": "https://github.com/"
-}
+                "net": "Android",
+                "link": "https://developer.android.google.cn/"
+            },
+            {
+                "net": "Github",
+                "link": "https://github.com/"
+            }
+            ]
 
-]
-            $(document).ready(function(){
-                netConfig.forEach(function(value){
-                    console.log(value.net)
-                    console.log(value.link)
-                    $("#content").append("<div class='item'><a href="+value.link+" target="+value.link+">"
-                        +value.net+"</a></div>")
-                })
-            });
-        </script>
-    </head>
-    
-    <body>
-
-        <div class="top">
-
-        </div>
-        <div class="main">
-            <div class="container">
-                <img class="header_img" src="img/header.jpg"/>
-
-                <div id="content"  class="center">
-            </div>
-            <!-- <div class="div_bg">
-                <img class="img_bg" src="img/bg.jpg"/>
-            </div> -->
-
-        </div>
+        $(document).ready(function () {
+            $("#time").text(getCurrentTime())
+            // $("#time").everyTime('1s',function(){
+            //     $(this).text(getCurrentTime())
+            // })
+            netConfig.forEach(function (value) {
+                console.log(value.net)
+                console.log(value.link)
+                $("#content").append("<div class='item'><a href=" + value.link + " target=" + value.link + ">"
+                    + value.net + "</a></div>")
+            })
+        });
         
-        <div class="bottom"></div>
-    </body>
+        function getCurrentTime(){
+            var date = new Date()
+            var year = date.getFullYear();
+            var month = date.getMonth();
+            var day = date.getDay();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var sec = date.getSeconds();
+            // +hour+":"+minute+":"+sec
+            return ""+year+"年"+month+"月"+day+"日 "
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+ 
+        <div id="div_top">
+            <img class="header_img" src="img/header.jpg" />
+            <h1 id="title">专属导航</h1>
+            <h2 id="time">time</h2>
+        </div>
+
+        <div id="content" class="center">
+        </div>
+        <div class="div_bg">
+            <img class="img_bg" src="img/bg.jpg" />
+        </div>
+
+    </div>
+
+</body>
+
 </html>
