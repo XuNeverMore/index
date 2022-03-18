@@ -8,14 +8,26 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script>
         var netConfig =
-            [{
-                "net": "Android",
-                "link": "https://developer.android.google.cn/"
-            },
-            {
-                "net": "Github",
-                "link": "https://github.com/"
-            }
+            [
+                {
+                    "net": "Android",
+                    "link": "https://developer.android.google.cn/"
+                }, {
+                    "net": "Github",
+                    "link": "https://github.com/"
+                }, {
+                    "net": "Gitee",
+                    "link": "https://gitee.com/"
+                }, {
+                    "net": "Gitlab",
+                    "link": "http://git.cocos.org:9080/dashboard/activity"
+                }, {
+                    "net": "爱奇艺",
+                    "link": "https://www.iqiyi.com/"
+                }, {
+                    "net": "Bilibili",
+                    "link": "https://www.bilibili.com/"
+                }
             ]
 
         $(document).ready(function () {
@@ -26,12 +38,12 @@
             netConfig.forEach(function (value) {
                 console.log(value.net)
                 console.log(value.link)
-                $("#content").append("<div class='item'><a href=" + value.link + " target=" + value.link + ">"
-                    + value.net + "</a></div>")
+                $("#content").append("<li class='item'><a href=" + value.link + " target=" + value.link + ">"
+                    + value.net + "</a></li>")
             })
         });
-        
-        function getCurrentTime(){
+
+        function getCurrentTime() {
             var date = new Date()
             var year = date.getFullYear();
             var month = date.getMonth();
@@ -40,7 +52,7 @@
             var minute = date.getMinutes();
             var sec = date.getSeconds();
             // +hour+":"+minute+":"+sec
-            return ""+year+"年"+month+"月"+day+"日 "
+            return "" + year + "年" + month + "月" + day + "日 "
         }
 
     </script>
@@ -49,19 +61,24 @@
 <body>
 
     <div class="container">
- 
-        <div id="div_top">
-            <img class="header_img" src="img/header.jpg" />
-            <h1 id="title">专属导航</h1>
-            <h2 id="time">time</h2>
+        <div class="div_time">
+            <span id="time" class="time">time</span>
         </div>
 
-        <div id="content" class="center">
+        <div id="div_top">
+            <img class="header_img" src="img/boji7.webp" />
+            <!-- <h1 id="title">专属导航</h1> -->
+        </div>
+
+        <div class="content_wrapper">
+            <ul id="content" class="center">
+            </ul>
         </div>
         <div class="div_bg">
             <img class="img_bg" src="img/bg.jpg" />
         </div>
 
+        <div id="bottom"></div>
     </div>
 
 </body>
