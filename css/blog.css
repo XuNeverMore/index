@@ -1,0 +1,81 @@
+/* home */
+@media screen and(min-width:62.5rem) {
+    #home{
+        min-width: none;
+        width: 50%;
+    }
+}
+
+/* 导航 */
+#navigator{
+   border: 1px solid blueviolet;
+   border-radius: 4px;
+}
+
+#navList{
+    clear: both;
+    height: 50px;
+    flex: 2;
+}
+#navList li a{
+    display: flex;
+    height: 50px;
+}
+#navList li{
+    display: inline;
+    margin: 0px,0px,0px,0px;
+}
+#navList ul li a:hover{
+    background-color: blanchedalmond;
+    border-radius: 3px;
+    font-size: 32px;
+}
+#navList a{
+    padding-top: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 50px;
+}
+.blogStats{
+    flex: 1;
+    clear: both;
+}
+
+/* 侧边栏 */
+#sideBar{
+    visibility: visible;
+}
+
+/* 公告 */
+#sidebar_news{
+}
+
+/* 日历 */
+#blog-calendar{
+
+}
+/* 搜索 */
+#sidebar_search{
+
+}
+/* 我的标签 */
+#sidebar_toptags{
+
+}
+/* 积分排名 */
+#sidebar_scorerank{
+
+}
+/* 随笔分类 */
+#sidebar_postcategory{
+
+}
+/* 随笔档案 */
+#sidebar_postarchive{
+
+}
+
+/* 阅读排行榜 */
+#sidebar_topviewedposts{
+
+}

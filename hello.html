@@ -6,12 +6,25 @@
     <title>我的导航</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".header_img").click(function(){
+                $(".content_wrapper").fadeToggle();
+            });
+        });
+    </script>
     <script>
         var netConfig =
             [
                 {
                     "net": "Android",
                     "link": "https://developer.android.google.cn/"
+                }, {
+                    "net": "Blog",
+                    "link": "https://www.cnblogs.com/"
+                }, {
+                    "net": "Bilibili",
+                    "link": "https://www.bilibili.com/"
                 }, {
                     "net": "Github",
                     "link": "https://github.com/"
@@ -21,12 +34,10 @@
                 }, {
                     "net": "Gitlab",
                     "link": "http://git.cocos.org:9080/dashboard/activity"
-                }, {
-                    "net": "爱奇艺",
+                },
+                {
+                    "net": "iQiYi",
                     "link": "https://www.iqiyi.com/"
-                }, {
-                    "net": "Bilibili",
-                    "link": "https://www.bilibili.com/"
                 }
             ]
 
@@ -45,6 +56,8 @@
 
         function getCurrentTime() {
             var date = new Date()
+            date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
+            // return date.format("yyyyMMdd")
             var year = date.getFullYear();
             var month = date.getMonth();
             var day = date.getDay();
@@ -61,12 +74,14 @@
 <body>
 
     <div class="container">
-        <div class="div_time">
+        <!-- <div class="div_time">
             <span id="time" class="time">time</span>
-        </div>
-
+        </div> -->
+        
+        <!-- <div style="width: 100%;height: 400px;background-color:blueviolet;background-image: url(https://w.wallhaven.cc/full/1k/wallhaven-1ke35v.jpg);background-repeat: no-repeat;background-size: cover;">
+        </div> -->
         <div id="div_top">
-            <img class="header_img" src="img/boji7.webp" />
+            <img class="header_img" src="img/boji3.webp" />
             <!-- <h1 id="title">专属导航</h1> -->
         </div>
 
@@ -74,13 +89,10 @@
             <ul id="content" class="center">
             </ul>
         </div>
-        <div class="div_bg">
-            <img class="img_bg" src="img/bg.jpg" />
-        </div>
+
 
         <div id="bottom"></div>
     </div>
-
 </body>
 
 </html>
