@@ -1,9 +1,7 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-image: url(../img/wallhaven-j3orvy.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color:#d8f589
 }
 .div_time{
     text-align: center;
@@ -71,10 +69,11 @@ body{
     border-radius: .25rem;
     font-size: 45px;
     text-decoration:underline;
+    text-shadow: 8px 8px 8px #3f3e3e;
 }
 .item a{
     line-height: 50px;
-    color: gold;
+    color: white;
     width: 100%;
     opacity: 70%;
     font-family:Arial, Helvetica, sans-serif;
@@ -82,8 +81,18 @@ body{
     padding: 10px;
     text-decoration:none;
     text-align: center;
+    text-shadow: 5px 5px 5px #3a3a3a;
 }
 
 #bottom{
     clear: both;
+}
+@media screen and (min-width: 1000px) {
+    body{
+        margin: 0px;
+        padding: 0px;
+        background-image: url(../img/wallhaven-j3orvy.jpg);
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
 }
