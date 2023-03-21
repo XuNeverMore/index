@@ -4,17 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>简易导航</title>
-    <link rel="icon" href="ico/w13.ico" type="image/x-icon"/>
+    <link rel="icon" href="ico/w13.ico" type="image/x-icon" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="scripts/cookies.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            $(".header_img").click(function(){
+        $(document).ready(function () {
+            $(".header_img").click(function () {
                 $(".content_wrapper").fadeToggle();
             });
         });
-    </script>
-    <script>
         var netConfig =
             [
                 {
@@ -48,8 +47,8 @@
             //     $(this).text(getCurrentTime())
             // })
             netConfig.forEach(function (value) {
-                console.log(value.net)
-                console.log(value.link)
+                // console.log(value.net)
+                // console.log(value.link)
                 $("#content").append("<li class='item'><a href=" + value.link + " target=" + value.link + ">"
                     + value.net + "</a></li>")
             })
@@ -69,6 +68,16 @@
             return "" + year + "年" + month + "月" + day + "日 "
         }
 
+        var keys = docCookies.keys();
+        for (var n = 0; n < keys.length; n++) {
+            console.log(docCookies.getItem(keys[n]));
+        }
+        var hasConfig = docCookies.hasItem('net_config')
+        if (!hasConfig) {
+            // docCookies.setItem()
+            console.log('no config!!!');
+            docCookies.setItem('net_config', 'xuchuanting_config');
+        }
     </script>
 </head>
 
@@ -78,7 +87,7 @@
         <!-- <div class="div_time">
             <span id="time" class="time">time</span>
         </div> -->
-        
+
         <!-- <div style="width: 100%;height: 400px;background-color:blueviolet;background-image: url(https://w.wallhaven.cc/full/1k/wallhaven-1ke35v.jpg);background-repeat: no-repeat;background-size: cover;">
         </div> -->
         <div id="div_top">
@@ -91,6 +100,9 @@
             </ul>
         </div>
 
+        <!-- <div class="div_bg">
+            <img class="img_bg" src="img/bg.jpg" />
+        </div> -->
 
         <div id="bottom"></div>
     </div>

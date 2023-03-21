@@ -1,7 +1,7 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color:#d8f589
+    background-color:#464646
 }
 .div_time{
     text-align: center;
@@ -40,15 +40,18 @@ body{
 }
 
 .img_bg{
-    width: 100%;
+    position: absolute;
     height: 100%;
+    width: 100%;
+    z-index: -1;
+    display: block;
 }
 
 .content_wrapper{
-    width: 75%;
-    min-height: 400px;
+    width: 100%;
+    height: 100%;
     margin: auto;
-    padding: 30px;
+    /* padding: 30px; */
     /* background-color:rgba(253, 253, 253, 0.3) ; */
     border-radius: 10px;
     /* overflow: scroll; */
@@ -87,7 +90,7 @@ body{
 #bottom{
     clear: both;
 }
-@media screen and (min-width: 1000px) {
+/* @media screen and (min-width: 1000px) {
     body{
         margin: 0px;
         padding: 0px;
@@ -95,4 +98,4 @@ body{
         background-repeat: no-repeat;
         background-size:cover;
     }
-}
+} */
