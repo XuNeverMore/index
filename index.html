@@ -17,25 +17,28 @@
         var netConfig =
             [
                 {
+                    "icon":"https://www.gstatic.cn/devrel-devsite/prod/v80bae38ba58d74b96b4842131d88ee335fbea404678aa063008110db834e2268/android/images/favicon.png",
                     "net": "Android",
                     "link": "https://developer.android.google.cn/"
                 }, {
+                    "icon":"https://common.cnblogs.com/favicon.svg",
                     "net": "Blog",
                     "link": "https://www.cnblogs.com/"
                 }, {
+                    "icon":"https://www.bilibili.com/favicon.ico?v=1",
                     "net": "Bilibili",
                     "link": "https://www.bilibili.com/"
                 }, {
+                    "icon":"https://github.githubassets.com/favicons/favicon.svg",
                     "net": "Github",
                     "link": "https://github.com/"
                 }, {
+                    "icon":"https://gitee.com/favicon.ico",
                     "net": "Gitee",
                     "link": "https://gitee.com/"
-                }, {
-                    "net": "Gitlab",
-                    "link": "http://git.cocos.org:9080/dashboard/activity"
-                },
+                }, 
                 {
+                    "icon":"https://pic3.iqiyipic.com/common/lego/20200519/8f9de288627345288f77cbc125dcd246.png",
                     "net": "iQiYi",
                     "link": "https://www.iqiyi.com/"
                 }
@@ -49,8 +52,9 @@
             netConfig.forEach(function (value) {
                 // console.log(value.net)
                 // console.log(value.link)
-                $("#content").append("<li class='item'><a href=" + value.link + " target=" + value.link + ">"
-                    + value.net + "</a></li>")
+                $("#content").append(
+                    "<li class='item'><a href="+ value.link + " target=" + value.link + "><div><div class='img_container'><img src="+value.icon+"></div><span>"
+                        +value.net+"</span></div></a></li>")
             })
         });
 
