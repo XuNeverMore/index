@@ -28,9 +28,9 @@ body{
     /* background-color: brown; */
 }
 .container{
-    /* background-color: #bdbdbc; */
-    max-width: 1600px;
+    /* background-color: #f0f048; */
     width: 100%;
+    height: 100%;
     margin: auto;
 }
 .div_bg{
@@ -42,26 +42,27 @@ body{
 }
 
 .img_bg{
-    position: absolute;
-    height: 100%;
-    width: 100%;
+    visibility:hidden;
+    /* position: absolute; */
+    /* height: 100%; */
     z-index: -1;
     display: block;
 }
 
 .content_wrapper{
-    width: 100%;
-    height: 100%;
+    width: 60%;
     margin: auto;
     /* padding: 30px; */
-    /* background-color:rgba(253, 253, 253, 0.3) ; */
+    /* background-color:rgba(107, 170, 5, 0.3) ; */
     border-radius: 10px;
     /* overflow: scroll; */
 }
 #content{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 25px;
+    /* background-color: aqua; */
+    grid-template-columns: repeat(6,1fr);
+    grid-gap: 10px;
+    justify-content: center;
     padding: 0px;
 }
 
@@ -71,10 +72,30 @@ body{
     margin: auto;
     padding: 8px;
     border-radius: 50%;
-    background-color: #fff;
+    border-style: solid;
+    border-width: 5px;
+    border: #fdfdfd;
+    background-color: #fdfdfd;
     display: flex;
     align-items: center;
 }
+.img_container:hover{
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    padding: 5px;
+    border-radius: 50%;
+    border: #070707;
+    border-style: solid;
+    border-width: 8px;
+    background-color: #fdfdfd;
+    display: flex;
+    align-items: center;
+}
+/* .img_container :hover{
+    width: 50px;
+    height: 50px;
+} */
 li img{
     margin:auto;
     width: 32px;
@@ -88,20 +109,20 @@ li span{
     list-style-type: none;
     text-align: center;
 } 
-.item a:hover{
+/* .item a:hover{
     opacity: 100%;
     border-radius: .25rem;
-    font-size: 32px;
+    font-size: 28px;
     text-decoration:underline;
     text-shadow: 8px 8px 8px #3f3e3e;
-}
+} */
 .item a{
     line-height: 50px;
     color: white;
     width: 100%;
-    opacity: 70%;
+    opacity: 90%;
     font-family:Arial, Helvetica, sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     padding: 10px;
     text-decoration:none;
     text-align: center;
