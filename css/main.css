@@ -16,15 +16,14 @@ body{
     display: block;
     margin: auto;
     border: 4px solid rgb(255, 255, 255);
-    height: 6.25rem;
-    width: 6.25rem;
+    height: 200px;
+    width: 200px;
     /* border: #fff; */
     /* border-width: 2px; */
     border-radius: 50%;
-
 }
 #div_top{
-    padding: 200px;
+    padding: 120px;
     /* background-color: brown; */
 }
 .container{
@@ -60,37 +59,34 @@ body{
 #content{
     display: grid;
     /* background-color: aqua; */
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(7,1fr);
     grid-gap: 10px;
     justify-content: center;
     padding: 0px;
 }
 
 .img_container{
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     margin: auto;
-    padding: 8px;
     border-radius: 50%;
     border-style: solid;
     border-width: 5px;
-    border: #fdfdfd;
-    background-color: #fdfdfd;
+    border: #fdf0f0;
+    background-color: #fdf0f0;
     display: flex;
     align-items: center;
 }
 .img_container:hover{
-    width: 48px;
-    height: 48px;
     margin: auto;
-    padding: 5px;
     border-radius: 50%;
-    border: #070707;
     border-style: solid;
-    border-width: 8px;
-    background-color: #fdfdfd;
+    border-width: 5px;
+    border: #ffffff;
+    background-color: #ffffff;
     display: flex;
     align-items: center;
+    box-shadow: 5px 5px 5px #3a3a3a;
 }
 /* .img_container :hover{
     width: 50px;
@@ -98,8 +94,8 @@ body{
 } */
 li img{
     margin:auto;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
 }
 li span{
     text-align: center;
@@ -122,7 +118,20 @@ li span{
     width: 100%;
     opacity: 90%;
     font-family:Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 16px;
+    padding: 10px;
+    text-decoration:none;
+    text-align: center;
+    text-shadow: 0px 0px 0px #3a3a3a;
+}
+
+.item a:hover{
+    line-height: 50px;
+    color: white;
+    width: 100%;
+    opacity: 100%;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 16px;
     padding: 10px;
     text-decoration:none;
     text-align: center;
