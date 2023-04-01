@@ -1,7 +1,9 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color:#03657e
+    background-color:#0befba;
+    /* -webkit-transition:background-color 2s; */
+    transition: background-color 2s;
 }
 .div_time{
     text-align: center;
