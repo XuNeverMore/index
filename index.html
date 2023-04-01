@@ -5,59 +5,59 @@
     <meta charset="utf-8">
     <title>简易导航</title>
     <link rel="icon" href="ico/w13.ico" type="image/x-icon" />
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="scripts/cookies.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $(".header_img").click(function () {
-                $(".content_wrapper").fadeToggle();
-            });
-        });
         var netConfig =
             [
                 {
-                    "icon":"https://www.gstatic.cn/devrel-devsite/prod/v80bae38ba58d74b96b4842131d88ee335fbea404678aa063008110db834e2268/android/images/favicon.png",
+                    "icon": "https://www.gstatic.cn/devrel-devsite/prod/v80bae38ba58d74b96b4842131d88ee335fbea404678aa063008110db834e2268/android/images/favicon.png",
                     "net": "Android",
                     "link": "https://developer.android.google.cn/"
                 }, {
-                    "icon":"https://common.cnblogs.com/favicon.svg",
+                    "icon": "https://common.cnblogs.com/favicon.svg",
                     "net": "Blog",
                     "link": "https://www.cnblogs.com/"
                 }, {
-                    "icon":"https://www.bilibili.com/favicon.ico?v=1",
+                    "icon": "https://www.bilibili.com/favicon.ico?v=1",
                     "net": "Bilibili",
                     "link": "https://www.bilibili.com/"
                 }, {
-                    "icon":"https://github.githubassets.com/favicons/favicon.svg",
+                    "icon": "https://github.githubassets.com/favicons/favicon.svg",
                     "net": "Github",
                     "link": "https://github.com/"
                 }, {
-                    "icon":"https://gitee.com/favicon.ico",
+                    "icon": "https://gitee.com/favicon.ico",
                     "net": "Gitee",
                     "link": "https://gitee.com/"
-                }, 
+                },
                 {
-                    "icon":"https://www.iqiyipic.com/pcwimg/128-128-logo.png",
+                    "icon": "https://www.iqiyipic.com/pcwimg/128-128-logo.png",
                     "net": "iQiYi",
                     "link": "https://www.iqiyi.com/"
                 }
             ]
 
-        $(document).ready(function () {
-            $("#time").text(getCurrentTime())
-            // $("#time").everyTime('1s',function(){
-            //     $(this).text(getCurrentTime())
-            // })
+
+        window.addEventListener('load', (event) => {
+            const content = document.querySelector("#content");
             netConfig.forEach(function (value) {
                 // console.log(value.net)
                 // console.log(value.link)
-                $("#content").append(
-                    "<li class='item'><a href="+ value.link + " target=" + value.link + "><div><div class='img_container'><img src="+value.icon+"></div><span>"
-                        +value.net+"</span></div></a></li>")
+                let nodeItem = document.createElement("li");
+                nodeItem.className = "item";
+                nodeItem.innerHTML =
+                    `<a href=${value.link} target=${value.link}>
+                        <div>
+                            <div class='img_container'>
+                                <img src=${value.icon}>
+                            </div>
+                            <span>${value.net}</span>
+                        </div>
+                    </a>`;
+                content.append(nodeItem);
             })
         });
-
         function getCurrentTime() {
             var date = new Date()
             date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
