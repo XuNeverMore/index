@@ -1,3 +1,9 @@
+html, body {
+    /* box-sizing: border-box; */
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
 body{
     margin: 0px;
     padding: 0px;
@@ -5,6 +11,16 @@ body{
     background: linear-gradient(to right, rgba(30, 75, 115, 1), rgb(244, 3, 140,0) );
     -webkit-transition:background-color 2s;
     transition: background-color 2s;
+}
+.container {
+    /* box-sizing: border-box; */
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.header_img, .page-footer {
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 div, span, p {
     caret-color: transparent;
@@ -27,28 +43,28 @@ div, span, p {
     /* border: #fff; */
     /* border-width: 2px; */
     border-radius: 50%;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
-.container{
-    display: flex;
-    flex-direction: column;
-}
-.list_wrapper{
-    width: 75%;
-    margin: auto;
-}
-.footer{
-    min-height: 100px;
-    position: absolute;
 
-    background-color: brown;
+.list_wrapper{
+    width: 60%;
+    border-radius: 20px;
+    margin: auto;
+    /* background-color: rgba(5, 47, 47, 0.2); */
+    flex: 1;
+}
+.page-footer{
+    min-height: 100px;
+    background-color: rgb(244, 3, 140,0);
 }
 #content{
-    /* background-color: aqua; */
+    /* background-color: rgb(5, 47, 47); */
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(7,1fr);
+    /* grid-template-columns: repeat(auto-fill,minmax(80px, 1fr)); */
     grid-gap: 10px;
-    justify-content: center;
-    padding: 0px;
 }
 
 .img_container{
@@ -74,6 +90,7 @@ div, span, p {
     display: flex;
     align-items: center;
     box-shadow: 1px 1px 1px #3a3a3a;
+    text-shadow: 2px 2px 2px #3a3a3a;
 }
 /* .img_container :hover{
     width: 50px;
@@ -88,6 +105,7 @@ li img{
     border-radius: 10px;
     list-style-type: none;
     text-align: center;
+    max-height: 80px;
 } 
 
 .item a{
