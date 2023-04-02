@@ -1,9 +1,13 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color:#0befba;
-    /* -webkit-transition:background-color 2s; */
+    /* background-color:#052117; */
+    background: linear-gradient(to right, rgba(30, 75, 115, 1), rgb(244, 3, 140,0) );
+    -webkit-transition:background-color 2s;
     transition: background-color 2s;
+}
+div, span, p {
+    caret-color: transparent;
 }
 .div_time{
     text-align: center;
@@ -16,7 +20,7 @@ body{
 }
 .header_img{
     display: block;
-    margin: auto;
+    margin: 80px auto;
     border: 4px solid rgb(255, 255, 255);
     height: 200px;
     width: 200px;
@@ -24,43 +28,23 @@ body{
     /* border-width: 2px; */
     border-radius: 50%;
 }
-#div_top{
-    padding: 120px;
-    /* background-color: brown; */
-}
 .container{
-    /* background-color: #f0f048; */
-    width: 100%;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.list_wrapper{
+    width: 75%;
     margin: auto;
 }
-.div_bg{
-    top: 0;
+.footer{
+    min-height: 100px;
     position: absolute;
-    z-index: -1;
-    display: block;
-    margin: auto;
-}
 
-.img_bg{
-    visibility:hidden;
-    /* position: absolute; */
-    /* height: 100%; */
-    z-index: -1;
-    display: block;
-}
-
-.content_wrapper{
-    width: 60%;
-    margin: auto;
-    /* padding: 30px; */
-    /* background-color:rgba(107, 170, 5, 0.3) ; */
-    border-radius: 10px;
-    /* overflow: scroll; */
+    background-color: brown;
 }
 #content{
-    display: grid;
     /* background-color: aqua; */
+    display: grid;
     grid-template-columns: repeat(7,1fr);
     grid-gap: 10px;
     justify-content: center;
@@ -78,6 +62,7 @@ body{
     background-color: #fdf0f0;
     display: flex;
     align-items: center;
+    box-shadow: 5px 5px 5px #616060;
 }
 .img_container:hover{
     margin: auto;
@@ -88,7 +73,7 @@ body{
     background-color: #ffffff;
     display: flex;
     align-items: center;
-    box-shadow: 5px 5px 5px #3a3a3a;
+    box-shadow: 1px 1px 1px #3a3a3a;
 }
 /* .img_container :hover{
     width: 50px;
@@ -99,21 +84,12 @@ li img{
     width: 28px;
     height: 28px;
 }
-li span{
-    text-align: center;
-}
 .item{ 
     border-radius: 10px;
     list-style-type: none;
     text-align: center;
 } 
-/* .item a:hover{
-    opacity: 100%;
-    border-radius: .25rem;
-    font-size: 28px;
-    text-decoration:underline;
-    text-shadow: 8px 8px 8px #3f3e3e;
-} */
+
 .item a{
     line-height: 50px;
     color: white;
@@ -124,7 +100,7 @@ li span{
     padding: 10px;
     text-decoration:none;
     text-align: center;
-    text-shadow: 0px 0px 0px #3a3a3a;
+    text-shadow: 5px 5px 5px #3a3a3a;
 }
 
 .item a:hover{
@@ -137,12 +113,9 @@ li span{
     padding: 10px;
     text-decoration:none;
     text-align: center;
-    text-shadow: 5px 5px 5px #3a3a3a;
+    text-shadow: 2px 2px 2px #3a3a3a;
 }
 
-#bottom{
-    clear: both;
-}
 /* @media screen and (min-width: 1000px) {
     body{
         margin: 0px;

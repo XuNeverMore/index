@@ -61,14 +61,14 @@
                             <div class='img_container'>
                                 <img src=${value.icon}>
                             </div>
-                            <span>${value.net}</span>
+                            <span class='item_span'>${value.net}</span>
                         </div>
                     </a>`;
                 content.append(nodeItem);
             })
 
             //change background-color
-            let mainLogo = document.querySelector("#div_top");
+            let mainLogo = document.querySelector(".header_img");
             mainLogo.addEventListener("click", () => {
                 // themeManager.setBgColor("#4faf65");
                 themeManager.randomBgColor();
@@ -111,14 +111,14 @@
         </div> -->
         <!-- <div style="width: 100%;height: 400px;background-color:blueviolet;background-image: url(https://w.wallhaven.cc/full/1k/wallhaven-1ke35v.jpg);background-repeat: no-repeat;background-size: cover;">
         </div> -->
-        <div id="div_top">
-            <img class="header_img" src="img/leo.jpg" />
-        </div>
-        <div class="content_wrapper">
+        <img class="header_img" src="img/leo.jpg" />
+        <div class="list_wrapper">
             <ul id="content" class="center">
             </ul>
         </div>
+        <div class="footer"></div>
     </div>
+
 </body>
 
 </html>
