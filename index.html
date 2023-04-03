@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="scripts/cookies.js"></script>
     <script src="scripts/themes.js"></script>
+    <script src="scripts/engines.js"></script>
     <script type="text/javascript">
         var netConfig =
             [
@@ -74,6 +75,10 @@
                 themeManager.randomBgColor();
                 console.log("=========clicked mainLogo");
             });
+            engines.setBingEngine();
+
+            var sel = document.querySelector('#select-engine');
+            sel.size = options.length;
         });
 
         function getCurrentTime() {
@@ -100,6 +105,20 @@
             console.log('no config!!!');
             docCookies.setItem('net_config', 'xuchuanting_config');
         }
+
+        function search(){
+            let edt = document.querySelector("#edt-search");
+            let content = edt.content
+            console.log('========edt content:'+content);
+        };
+        function onEngineChanged(engineName){
+            console.log('engine==='+engineName);
+            engines.setEngine(engineName);
+        };
+       function showSelect(){
+        var sel = document.querySelector('#select-engine');
+        sel.onclick();
+       }
     </script>
 </head>
 
@@ -109,9 +128,22 @@
         <!-- <div class="div_time">
             <span id="time" class="time">time</span>
         </div> -->
-        <!-- <div style="width: 100%;height: 400px;background-color:blueviolet;background-image: url(https://w.wallhaven.cc/full/1k/wallhaven-1ke35v.jpg);background-repeat: no-repeat;background-size: cover;">
-        </div> -->
         <img class="header_img" src="img/leo.jpg" />
+        <div class="search">
+            <!-- https://cn.bing.com/search?q= -->
+            <form id='form-search' action="https://cn.bing.com/search" method="get" target="_blank">
+                <select name="engines" id="select-engine" onchange="onEngineChanged(this.options[this.options.selectedIndex].value)">
+                    <option value="bing">bing</option>
+                    <option value="baidu">baidu</option>
+                </select>
+                
+                <input id="edt-search" type="search" name="q">
+                <div class="div-submit">
+                    <input id="btn-search" type="image" src="icons/ic_search.png" onclick="search()">
+                </div>
+            </form>
+            <img src="icons/ic_bing.png" class="icon-engine" onclick="showSelect()">
+        </div>
         <div class="list_wrapper">
             <ul id="content" class="center">
             </ul>
