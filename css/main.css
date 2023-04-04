@@ -4,13 +4,41 @@ html, body {
     padding: 0;
     margin: 0;
 }
+
 body{
     margin: 0px;
     padding: 0px;
     /* background-color:#052117; */
     background: linear-gradient(to right, rgba(30, 75, 115, 1), rgb(244, 3, 140,0) );
-    -webkit-transition:background-color 2s;
-    transition: background-color 2s;
+    transition: background-color 2s,background 2s;
+}
+.main{
+    /* display: flex; */
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+.setting-title{
+    padding: 10px;
+}
+.setting-item{
+    padding: 10px;
+}
+.setting-item *{
+    margin-top: 5px;
+}
+.drawer-settings{
+    background-color: #ffffff;
+    opacity: 60%;
+    width: 0px;
+    min-height: 100%;
+    position: absolute;
+    /* right: -20%; */
+    top: 0;
+    /* display: none; */
+    transition: width 0.75s,display 1s;
+    transition-timing-function: ease-out;
+    overflow-x: hidden;
 }
 .container {
     /* box-sizing: border-box; */
@@ -35,6 +63,7 @@ body{
     background-color: rgba(21, 22, 21, 0.6);
 }
 .header_img{
+    pointer-events:visible;
     display: block;
     caret-color: transparent;
     margin: 80px auto;

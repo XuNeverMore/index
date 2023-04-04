@@ -2,6 +2,16 @@ var themeManager = {
     setBgColor: function (color) {
         document.body.style = `background-color:${color};`;
     },
+    applyLinearBgColor: function () {
+        let bgColorStart = document.querySelector("#bgcolor-start").value;
+        let bgColorEnd = document.querySelector("#bgcolor-end").value;
+
+        console.log('colorStart:' + bgColorStart);
+        console.log('colorEnd:' + bgColorEnd);
+        console.log('body background:' + document.body.style.background);
+        document.body.style.background = `linear-gradient(to right, ${bgColorStart}, ${bgColorEnd} )`;
+        // document.body.style.background ='linear-gradient(to right, #ff0000, #00ff00)';
+    },
     randomBgColor: function () {
         let colors =
             [
@@ -14,9 +24,9 @@ var themeManager = {
                 "#b11109",
                 "#0befba"
             ];
-        let index = Math.floor(Math.random()*colors.length);
+        let index = Math.floor(Math.random() * colors.length);
         let color = colors[index];
-        document.body.style.backgroundColor=color;
+        document.body.style.backgroundColor = color;
         // ("background-color",color);
     }
 

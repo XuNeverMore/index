@@ -9,6 +9,7 @@
     <script src="scripts/cookies.js"></script>
     <script src="scripts/themes.js"></script>
     <script src="scripts/engines.js"></script>
+    <script src="scripts/drawer.js"></script>
     <script type="text/javascript">
         var netConfig =
             [
@@ -67,15 +68,19 @@
                     </a>`;
                 content.append(nodeItem);
             })
-
-            //change background-color
-            let mainLogo = document.querySelector(".header_img");
-            mainLogo.addEventListener("click", () => {
-                // themeManager.setBgColor("#4faf65");
-                themeManager.randomBgColor();
-                console.log("=========clicked mainLogo");
+            //body click
+            document.querySelector(".main").addEventListener('click', () => {
+                drawerManager.closeDrawer();
             });
             engines.setBingEngine();
+            //init bg color
+            let bgColorStart = docCookies.getItem('bgColorStart');
+            let bgColorEnd = docCookies.getItem('bgColorEnd');
+            console.log('start:' + bgColorStart + ",end:" + bgColorEnd);
+            document.querySelector('#bgcolor-start').value = bgColorStart == null ? "#1E4B73" : bgColorStart;
+            document.querySelector('#bgcolor-end').value = bgColorEnd == null ? "#FFFFFF" : bgColorEnd;
+            themeManager.applyLinearBgColor();
+
         });
 
         function getCurrentTime() {
@@ -91,7 +96,18 @@
             // +hour+":"+minute+":"+sec
             return "" + year + "年" + month + "月" + day + "日 "
         }
-
+        var onHeaderClicked = function () {
+            let state = drawerManager.toggle();
+            event.stopPropagation();
+            console.log("=========clicked mainLogo");
+        }
+        drawerManager.onDrawerClosed = () => {
+            console.log('onDrawerClosed');
+            themeManager.applyLinearBgColor();
+        }
+        var onClickEmpty = () => {
+            event.stopPropagation();
+        }
         var keys = docCookies.keys();
         for (var n = 0; n < keys.length; n++) {
             console.log(docCookies.getItem(keys[n]));
@@ -102,50 +118,82 @@
             console.log('no config!!!');
             docCookies.setItem('net_config', 'xuchuanting_config');
         }
-
-        function search(){
+        function onBgColorStartChange(color) {
+            console.log('on color start change:' + color);
+            docCookies.setItem('bgColorStart', color);
+        }
+        function onBgColorEndChange(color) {
+            console.log('on color end change:' + color)
+            docCookies.setItem('bgColorEnd', color);
+        }
+        function search() {
             let edt = document.querySelector("#edt-search");
             let content = edt.content
-            console.log('========edt content:'+content);
+            console.log('========edt content:' + content);
         };
-        function onEngineChanged(engineName){
-            console.log('engine==='+engineName);
+        function onEngineChanged(engineName) {
+            console.log('engine===' + engineName);
             engines.setEngine(engineName);
         };
-       function showSelect(){
-        var sel = document.querySelector('#select-engine');
-        sel.onclick();
-       }
+        function showSelect() {
+            var sel = document.querySelector('#select-engine');
+            sel.onclick();
+        }
     </script>
 </head>
 
 <body>
 
-    <div class="container">
-        <!-- <div class="div_time">
+    <div class="main">
+
+        <div class="container">
+            <!-- <div class="div_time">
             <span id="time" class="time">time</span>
         </div> -->
-        <img class="header_img" src="img/leo.jpg" />
-        <div class="search">
-            <!-- https://cn.bing.com/search?q= -->
-            <form id='form-search' action="https://cn.bing.com/search" method="get" target="_blank">
-                <select name="engines" id="select-engine" onchange="onEngineChanged(this.options[this.options.selectedIndex].value)">
-                    <option value="bing">bing</option>
-                    <option value="baidu">baidu</option>
-                </select>
-                
-                <input id="edt-search" type="search" name="q">
-                <div class="div-submit">
-                    <input id="btn-search" type="image" src="icons/ic_search.png" onclick="search()">
+            <img class="header_img" src="img/leo.jpg" onclick="onHeaderClicked()" />
+            <div class="search">
+                <!-- https://cn.bing.com/search?q= -->
+                <form id='form-search' action="https://cn.bing.com/search" method="get" target="_blank">
+                    <select name="engines" id="select-engine"
+                        onchange="onEngineChanged(this.options[this.options.selectedIndex].value)">
+                        <option value="bing">bing</option>
+                        <option value="baidu">baidu</option>
+                    </select>
+
+                    <input id="edt-search" type="search" name="q">
+                    <div class="div-submit">
+                        <input id="btn-search" type="image" src="icons/ic_search.png" onclick="search()">
+                    </div>
+                </form>
+                <img src="icons/ic_bing.png" class="icon-engine" onclick="showSelect()">
+            </div>
+            <div class="list_wrapper">
+                <ul id="content" class="center">
+                </ul>
+            </div>
+            <div class="page-footer"></div>
+        </div>
+
+        <div class="drawer-settings" onclick="onClickEmpty()">
+
+            <div class="setting-title">
+                <span>背景颜色</span>
+            </div>
+            <div class="setting-item">
+                <div class="color-container">
+                    <input type="color" id="bgcolor-start" name="bgcolor-start" value="#1E4B73"
+                        onchange="onBgColorStartChange(this.value)">
+                    <label for="bgcolor-start">start</label>
                 </div>
-            </form>
-            <img src="icons/ic_bing.png" class="icon-engine" onclick="showSelect()">
+
+                <div class="color-container">
+                    <input type="color" id="bgcolor-end" name="bgcolor-end" value="#FFFFFF"
+                        onchange="onBgColorEndChange(this.value)">
+                    <label for="bgcolor-end">end</label>
+                </div>
+            </div>
         </div>
-        <div class="list_wrapper">
-            <ul id="content" class="center">
-            </ul>
-        </div>
-        <div class="page-footer"></div>
+
     </div>
 
 </body>
