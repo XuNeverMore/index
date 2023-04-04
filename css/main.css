@@ -129,7 +129,7 @@ body{
     border-radius: 50%;
     display: flex;
     align-items: center;
-    box-shadow: 5px 5px 5px #616060;
+    /* box-shadow: 5px 5px 5px #616060; */
     background-color: #ececec;
     border: transparent solid 5px;
 }
@@ -139,9 +139,8 @@ body{
     background-color: #ffffff;
     display: flex;
     align-items: center;
-    border: #3a3a3a solid 5px;
-    box-shadow: 1px 1px 1px #3a3a3a;
-    text-shadow: 2px 2px 2px #3a3a3a;
+    /* border: #3a3a3a solid 2px; */
+    box-shadow: 4px 4px 4px #7a7a7a;
 }
 
 li img{
@@ -180,7 +179,7 @@ li img{
     text-decoration:none;
     text-align: center;
     /* text-shadow: 2px 2px 2px #3a3a3a; */
-    text-shadow: 6px 6px 6px #3a3a3a;
+    text-shadow: 4px 4px 4px #3a3a3a;
 }
 
 /* @media screen and (min-width: 1000px) {
