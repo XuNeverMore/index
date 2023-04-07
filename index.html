@@ -120,11 +120,11 @@
         }
         function onBgColorStartChange(color) {
             console.log('on color start change:' + color);
-            docCookies.setItem('bgColorStart', color);
+            docCookies.setItem('bgColorStart', color, Infinity);
         }
         function onBgColorEndChange(color) {
             console.log('on color end change:' + color)
-            docCookies.setItem('bgColorEnd', color);
+            docCookies.setItem('bgColorEnd', color, Infinity);
         }
         function search() {
             let edt = document.querySelector("#edt-search");
