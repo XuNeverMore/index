@@ -2,10 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>芒果导航</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>奥特曼导航</title>
     <link rel="icon" href="ico/w10.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="css/root.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
+
     <script src="scripts/cookies.js"></script>
     <script src="scripts/themes.js"></script>
     <script src="scripts/engines.js"></script>
@@ -15,46 +17,22 @@
   </head>
 
   <body>
-    <div class="main">
+    <div class="main" style="position: relative">
+      <span
+        id="sp-info"
+        style="z-index: 100; position: absolute; left: 0; top: 0; color: white"
+      ></span>
       <div class="container">
-        <img class="header_img" src="img/leo.jpg" onclick="onHeaderClicked()" />
-        <div class="content">
-          <div class="search">
-            <!-- https://cn.bing.com/search?q= -->
-            <form
-              id="form-search"
-              action="https://cn.bing.com/search"
-              method="get"
-              target="_blank"
-            >
-              <div class="engine-selector">
-                <select
-                  name="engines"
-                  id="select-engine"
-                  onchange="onEngineChanged(this.options[this.options.selectedIndex].value)"
-                >
-                  <option value="bing">bing</option>
-                  <option value="baidu">baidu</option>
-                </select>
-                <img
-                  src="icons/ic_bing.png"
-                  class="icon-engine"
-                  onclick="showSelect()"
-                />
-              </div>
+        <div class="topBar">
+          <span>加</span
+          ><img
+            class="header_img"
+            src="img/leo.jpg"
+            onclick="onHeaderClicked()"
+          /><span>油</span>
+        </div>
 
-              <input id="edt-search" type="search" name="q" />
-              <div class="div-submit">
-                <input
-                  id="btn-search"
-                  type="image"
-                  src="icons/ic_search.png"
-                  onclick="search()"
-                />
-              </div>
-            </form>
-          </div>
-          <div style="height: 5rem;"></div>
+        <div class="content">
           <ul id="content"></ul>
           <div class="page-footer"></div>
         </div>

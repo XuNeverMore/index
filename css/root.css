@@ -1,6 +1,18 @@
 :root {
   --textColorPrimary: #ffffff;
-  --textSizeWebName: 2rem;
-  --itemSize: 8rem;
-  --itemImageSize:5rem;
+  --textSizeWebName: 1.6rem;
+  --itemSize: 6rem;
+  --itemImageSize: 4rem;
+
+  --searchSize: 3.2rem;
+}
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 3.2vw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 1vw;
+  }
 }

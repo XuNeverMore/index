@@ -6,9 +6,9 @@ var themeManager = {
         let bgColorStart = document.querySelector("#bgcolor-start").value;
         let bgColorEnd = document.querySelector("#bgcolor-end").value;
 
-        console.log('colorStart:' + bgColorStart);
-        console.log('colorEnd:' + bgColorEnd);
-        console.log('body background:' + document.body.style.background);
+        // console.log('colorStart:' + bgColorStart);
+        // console.log('colorEnd:' + bgColorEnd);
+        // console.log('body background:' + document.body.style.background);
         document.body.style.background = `linear-gradient(to right, ${bgColorStart}, ${bgColorEnd} )`;
         // document.body.style.background ='linear-gradient(to right, #ff0000, #00ff00)';
     },

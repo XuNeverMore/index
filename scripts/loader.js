@@ -1,5 +1,6 @@
 let netConfig = configs.websites;
 window.addEventListener("load", (event) => {
+  logScreenInfo();
   const content = document.querySelector("#content");
   netConfig.forEach(function (value) {
     // console.log(value.net)
@@ -87,4 +88,12 @@ function onEngineChanged(engineName) {
 function showSelect() {
   var sel = document.querySelector("#select-engine");
   sel.onclick();
+}
+
+function logScreenInfo() {
+  let screenHeight = screen.height;
+  let screenWidth = screen.width;
+  let info = `screen size:${screenWidth}x${screenHeight}`;
+  console.log(info);
+  document.querySelector("#sp-info").innerHTML = info;
 }
