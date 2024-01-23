@@ -14,8 +14,7 @@ body {
   /* background-color:#052117; */
   background: linear-gradient(
     to right,
-    rgba(30, 75, 115, 1),
-    rgb(244, 3, 140, 0)
+    blue,red
   );
   transition: background-color 2s, background 2s;
 }
