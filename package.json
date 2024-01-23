@@ -1,0 +1,11 @@
+{
+  "name": "index",
+  "version": "1.0.0",
+  "description": "简易网站导航",
+  "main": "index.js",
+  "scripts": {
+    "test": "open index.html"
+  },
+  "author": "xunevermore",
+  "license": "ISC"
+}

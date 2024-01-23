@@ -1,201 +1,93 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <title>简易导航</title>
-    <link rel="icon" href="ico/w13.ico" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+  <head>
+    <meta charset="utf-8" />
+    <title>芒果导航</title>
+    <link rel="icon" href="ico/w10.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/root.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
     <script src="scripts/cookies.js"></script>
     <script src="scripts/themes.js"></script>
     <script src="scripts/engines.js"></script>
     <script src="scripts/drawer.js"></script>
-    <script type="text/javascript">
-        var netConfig =
-            [
-                {
-                    "icon": "https://www.gstatic.cn/devrel-devsite/prod/v80bae38ba58d74b96b4842131d88ee335fbea404678aa063008110db834e2268/android/images/favicon.png",
-                    "net": "Android",
-                    "link": "https://developer.android.google.cn/"
-                },
-                {
-                    "icon": "https://developer.mozilla.org/favicon-48x48.cbbd161b.png",
-                    "net": "MDN",
-                    "link": "https://developer.mozilla.org/zh-CN/"
-                },
-                {
-                    "icon": "https://www.cnblogs.com/images/aggsite/myblog.svg",
-                    "net": "Blog",
-                    "link": "https://www.cnblogs.com/"
-                },
-                {
-                    "icon": "https://www.bilibili.com/favicon.ico?v=1",
-                    "net": "Bilibili",
-                    "link": "https://www.bilibili.com/"
-                },
-                {
-                    "icon": "https://github.githubassets.com/favicons/favicon.svg",
-                    "net": "Github",
-                    "link": "https://github.com/"
-                }, {
-                    "icon": "https://gitee.com/favicon.ico",
-                    "net": "Gitee",
-                    "link": "https://gitee.com/"
-                },
-                {
-                    "icon": "icons/ic_iqy.png",
-                    "net": "iQiYi",
-                    "link": "https://www.iqiyi.com/"
-                }
-            ]
+    <script src="config.js"></script>
+    <script src="scripts/loader.js"></script>
+  </head>
 
-
-        window.addEventListener('load', (event) => {
-            const content = document.querySelector("#content");
-            netConfig.forEach(function (value) {
-                // console.log(value.net)
-                // console.log(value.link)
-                let nodeItem = document.createElement("li");
-                nodeItem.className = "item";
-                nodeItem.innerHTML =
-                    `<a href=${value.link} target=${value.link}>
-                        <div>
-                            <div class='img_container'>
-                                <img src=${value.icon}>
-                            </div>
-                            <span class='item_span'>${value.net}</span>
-                        </div>
-                    </a>`;
-                content.append(nodeItem);
-            })
-            //body click
-            document.querySelector(".main").addEventListener('click', () => {
-                drawerManager.closeDrawer();
-            });
-            engines.setBingEngine();
-            //init bg color
-            let bgColorStart = docCookies.getItem('bgColorStart');
-            let bgColorEnd = docCookies.getItem('bgColorEnd');
-            console.log('start:' + bgColorStart + ",end:" + bgColorEnd);
-            document.querySelector('#bgcolor-start').value = bgColorStart == null ? "#1E4B73" : bgColorStart;
-            document.querySelector('#bgcolor-end').value = bgColorEnd == null ? "#FFFFFF" : bgColorEnd;
-            themeManager.applyLinearBgColor();
-
-        });
-
-        function getCurrentTime() {
-            var date = new Date()
-            date.setMinutes(date.getMinutes() - date.getTimezoneOffset());
-            // return date.format("yyyyMMdd")
-            var year = date.getFullYear();
-            var month = date.getMonth();
-            var day = date.getDay();
-            var hour = date.getHours();
-            var minute = date.getMinutes();
-            var sec = date.getSeconds();
-            // +hour+":"+minute+":"+sec
-            return "" + year + "年" + month + "月" + day + "日 "
-        }
-        var onHeaderClicked = function () {
-            let state = drawerManager.toggle();
-            event.stopPropagation();
-            console.log("=========clicked mainLogo");
-        }
-        drawerManager.onDrawerClosed = () => {
-            console.log('onDrawerClosed');
-            themeManager.applyLinearBgColor();
-        }
-        var onClickEmpty = () => {
-            event.stopPropagation();
-        }
-        var keys = docCookies.keys();
-        for (var n = 0; n < keys.length; n++) {
-            console.log(docCookies.getItem(keys[n]));
-        }
-        var hasConfig = docCookies.hasItem('net_config')
-        if (!hasConfig) {
-            // docCookies.setItem()
-            console.log('no config!!!');
-            docCookies.setItem('net_config', 'xuchuanting_config');
-        }
-        function onBgColorStartChange(color) {
-            console.log('on color start change:' + color);
-            docCookies.setItem('bgColorStart', color, Infinity);
-        }
-        function onBgColorEndChange(color) {
-            console.log('on color end change:' + color)
-            docCookies.setItem('bgColorEnd', color, Infinity);
-        }
-        function search() {
-            let edt = document.querySelector("#edt-search");
-            let content = edt.content
-            console.log('========edt content:' + content);
-        };
-        function onEngineChanged(engineName) {
-            console.log('engine===' + engineName);
-            engines.setEngine(engineName);
-        };
-        function showSelect() {
-            var sel = document.querySelector('#select-engine');
-            sel.onclick();
-        }
-    </script>
-</head>
-
-<body>
-
+  <body>
     <div class="main">
+      <div class="container">
+        <img class="header_img" src="img/leo.jpg" onclick="onHeaderClicked()" />
+        <div class="content">
+          <div class="search">
+            <!-- https://cn.bing.com/search?q= -->
+            <form
+              id="form-search"
+              action="https://cn.bing.com/search"
+              method="get"
+              target="_blank"
+            >
+              <div class="engine-selector">
+                <select
+                  name="engines"
+                  id="select-engine"
+                  onchange="onEngineChanged(this.options[this.options.selectedIndex].value)"
+                >
+                  <option value="bing">bing</option>
+                  <option value="baidu">baidu</option>
+                </select>
+                <img
+                  src="icons/ic_bing.png"
+                  class="icon-engine"
+                  onclick="showSelect()"
+                />
+              </div>
 
-        <div class="container">
-            <!-- <div class="div_time">
-            <span id="time" class="time">time</span>
-        </div> -->
-            <img class="header_img" src="img/leo.jpg" onclick="onHeaderClicked()" />
-            <div class="search">
-                <!-- https://cn.bing.com/search?q= -->
-                <form id='form-search' action="https://cn.bing.com/search" method="get" target="_blank">
-                    <select name="engines" id="select-engine"
-                        onchange="onEngineChanged(this.options[this.options.selectedIndex].value)">
-                        <option value="bing">bing</option>
-                        <option value="baidu">baidu</option>
-                    </select>
-
-                    <input id="edt-search" type="search" name="q">
-                    <div class="div-submit">
-                        <input id="btn-search" type="image" src="icons/ic_search.png" onclick="search()">
-                    </div>
-                </form>
-                <img src="icons/ic_bing.png" class="icon-engine" onclick="showSelect()">
-            </div>
-            <div class="list_wrapper">
-                <ul id="content" class="center">
-                </ul>
-            </div>
-            <div class="page-footer"></div>
+              <input id="edt-search" type="search" name="q" />
+              <div class="div-submit">
+                <input
+                  id="btn-search"
+                  type="image"
+                  src="icons/ic_search.png"
+                  onclick="search()"
+                />
+              </div>
+            </form>
+          </div>
+          <div style="height: 5rem;"></div>
+          <ul id="content"></ul>
+          <div class="page-footer"></div>
         </div>
+      </div>
 
-        <div class="drawer-settings" onclick="onClickEmpty()">
-
-            <div class="setting-title">
-                <span>背景颜色</span>
-            </div>
-            <div class="setting-item">
-                <div class="color-container">
-                    <input type="color" id="bgcolor-start" name="bgcolor-start" value="#1E4B73"
-                        onchange="onBgColorStartChange(this.value)">
-                    <label for="bgcolor-start">start</label>
-                </div>
-
-                <div class="color-container">
-                    <input type="color" id="bgcolor-end" name="bgcolor-end" value="#FFFFFF"
-                        onchange="onBgColorEndChange(this.value)">
-                    <label for="bgcolor-end">end</label>
-                </div>
-            </div>
+      <div class="drawer-settings" onclick="onClickEmpty()">
+        <div class="setting-title">
+          <span>背景颜色</span>
         </div>
+        <div class="setting-item">
+          <div class="color-container">
+            <input
+              type="color"
+              id="bgcolor-start"
+              name="bgcolor-start"
+              value="#1E4B73"
+              onchange="onBgColorStartChange(this.value)"
+            />
+            <label for="bgcolor-start">start</label>
+          </div>
 
+          <div class="color-container">
+            <input
+              type="color"
+              id="bgcolor-end"
+              name="bgcolor-end"
+              value="#FFFFFF"
+              onchange="onBgColorEndChange(this.value)"
+            />
+            <label for="bgcolor-end">end</label>
+          </div>
+        </div>
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>
