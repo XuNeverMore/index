@@ -18,10 +18,14 @@ window.addEventListener("load", (event) => {
     content.append(nodeItem);
   });
   //body click
+  let drawer = document.querySelector(".drawer-settings");
   document.querySelector(".main").addEventListener("click", () => {
-    drawerManager.closeDrawer();
+    let isOpen = drawerManager.isDrawerOpen();
+    if (isOpen) {
+      drawerManager.closeDrawer();
+    }
   });
-  engines.setBingEngine();
+  // engines.setBingEngine();
   //init bg color
   let bgColorStart = docCookies.getItem("bgColorStart");
   let bgColorEnd = docCookies.getItem("bgColorEnd");
