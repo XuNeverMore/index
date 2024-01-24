@@ -33,7 +33,7 @@ body {
   justify-content: end;
   top: 2rem;
   right: 2rem;
-  --settingItemSize: 2rem;
+  --settingItemSize: 1.6rem;
 }
 
 .settingBar span {
@@ -67,7 +67,7 @@ body {
 .span-time {
   display: block;
   font-size: 2rem;
-  padding: 1rem 0;
+  padding: 3rem 0;
   margin: auto;
   font-family: Courier, monospace;
 }
@@ -201,7 +201,7 @@ ul {
 }
 .item {
   margin: auto;
-  width: var(--itemSize);
+  width: calc(var(--itemSize) * 1.4);
   border-radius: 10px;
   list-style-type: none;
   text-align: center;
