@@ -60,11 +60,46 @@ body {
 .header_img {
   pointer-events: visible;
   display: block;
-  border: 0.2rem solid rgb(255, 255, 255);
   height: var(--headerImageSize);
   aspect-ratio: 1;
-  border-radius: 50%;
+  transition: all 0.4s;
+  scale: 1;
+
 }
+
+.header_img:hover {
+  scale: 1.1;
+}
+
+.header-outline {
+  border-radius: 50%;
+  /* border: 0.25rem solid rgba(255, 255, 255, 0.516); */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.header-wrapper {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: var(--headerImageSize);
+  aspect-ratio: 1;
+  clip-path: circle(50%);
+}
+
+/* .header-wrapper::before{
+  content: '';
+  height: var(--headerImageSize);
+  aspect-ratio: 1;
+  box-shadow: 2rem 2rem 1rem 1rem #dddddd;
+  position: absolute;
+  left: 0;
+  top: 0;
+} */
 
 .drawer-settings {
   background-color: #ffffff;
