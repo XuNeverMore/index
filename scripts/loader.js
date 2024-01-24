@@ -1,7 +1,32 @@
 let netConfig = configs.websites;
 window.addEventListener("load", (event) => {
-  logScreenInfo();
+  // logScreenInfo();
+  showTime();
+  let headerImage = document.querySelector(".header_img");
   const content = document.querySelector("#content");
+  content.style.display = "none";
+  const words = document.querySelectorAll(".topBar span");
+  function setVisible(elements, visible) {
+    elements.forEach((el) => {
+      console.log(el);
+      if (visible) {
+        el.style.visibility = "visible";
+      } else {
+        el.style.visibility = "hidden";
+      }
+    });
+  }
+  setVisible(words, false);
+  headerImage.onclick = (event) => {
+    let isGone = content.style.display == "none";
+    if (isGone) {
+      content.style.display = "flex";
+      setVisible(words, true);
+    } else {
+      setVisible(words, false);
+      content.style.display = "none";
+    }
+  };
   netConfig.forEach(function (value) {
     // console.log(value.net)
     // console.log(value.link)
@@ -100,4 +125,29 @@ function logScreenInfo() {
   let info = `screen size:${screenWidth}x${screenHeight}`;
   console.log(info);
   document.querySelector("#sp-info").innerHTML = info;
+}
+
+function showTime() {
+  let timeSpan = document.querySelector(".span-time");
+  timeSpan.innerHTML = formattedTime();
+
+  setInterval(() => {
+    timeSpan.innerHTML = formattedTime();
+  }, 1000);
+}
+function formattedTime() {
+  var date = new Date();
+  var timestamp = date.getTime();
+  var Y = date.getFullYear();
+  var M =
+    date.getMonth() + 1 < 10
+      ? "0" + (date.getMonth() + 1)
+      : date.getMonth() + 1;
+  var D = date.getDate();
+  var h = date.getHours();
+  var m = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+  var s = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+  var yymmdd = Y + "-" + M + "-" + D;
+  var yymmddhhmmss = Y + "." + M + "." + D + " " + h + ":" + m + ":" + s;
+  return yymmddhhmmss;
 }

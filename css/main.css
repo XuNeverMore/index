@@ -4,6 +4,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
+  --headerImageSize: 12rem;
 }
 * {
   box-sizing: border-box;
@@ -12,10 +13,7 @@ body {
   margin: 0px;
   padding: 0px;
   /* background-color:#052117; */
-  background: linear-gradient(
-    to right,
-    blue,red
-  );
+  background: linear-gradient(to right, blue, red);
   transition: background-color 2s, background 2s;
 }
 
@@ -40,15 +38,41 @@ body {
   margin-top: 5px;
 }
 .topBar {
-  padding: 3.5rem 0;
+  padding-top: 6rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 .topBar span {
   font-size: 4rem;
+  display: block;
   color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  caret-color: transparent;
+  width: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  aspect-ratio: 1;
 }
+.span-time{
+  caret-color: transparent;
+  display: block;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem 0;
+  margin: auto;
+  font-family: Courier, monospace;
+}
+.header_img {
+  caret-color: transparent;
+  pointer-events: visible;
+  display: block;
+  border: 0.2rem solid rgb(255, 255, 255);
+  height: var(--headerImageSize);
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
 .drawer-settings {
   background-color: #ffffff;
   opacity: 60%;
@@ -68,11 +92,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-.header_img,
-.page-footer {
-  flex-grow: 0;
-  flex-shrink: 0;
-}
+
 /* div, span, p {
     caret-color: transparent;
 } */
@@ -84,15 +104,6 @@ body {
   top: 0px;
   padding: 10px 30px;
   background-color: rgba(21, 22, 21, 0.6);
-}
-.header_img {
-  pointer-events: visible;
-  display: block;
-  caret-color: transparent;
-  border: 4px solid rgb(255, 255, 255);
-  height: 12rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
 }
 
 .list_wrapper {
@@ -106,10 +117,13 @@ body {
   background-color: rgb(244, 3, 140, 0);
 }
 ul {
-  display: grid;
-  place-items: center;
-  grid-auto-rows: minmax(8rem, auto);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   padding: 0.8rem;
+}
+.content{
+  transition: all 0.5s;
 }
 @media screen and (max-width: 400px) {
   ul {
@@ -181,7 +195,7 @@ ul {
   text-shadow: 4px 4px 4px #3a3a3a;
 }
 .item_span {
-  padding: 0.6rem 0;
+  padding: 0.1rem 0;
   display: block;
   font-size: var(--textSizeWebName);
 }
