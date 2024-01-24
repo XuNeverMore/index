@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>修改opacity</title>
+</head>
+<body>
+    <!-- 创建一个 div 元素 -->
+    <div id="myDiv" style="width: 500px;height: 500px;background-color: green;opacity: 0.5;">
+        点击我改变透明度
+    </div>
+    <button onclick="changeOpacity()">修改透明度</button>
+
+    <script>
+        function changeOpacity() {
+            var div = document.getElementById('myDiv');
+            div.style.opacity = 1;
+        }
+    </script>
+</body>
+</html>

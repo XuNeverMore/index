@@ -7,7 +7,10 @@
     <link rel="icon" href="ico/w10.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="css/root.css" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-
+    <script
+      src="https://kit.fontawesome.com/364b67e8be.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="scripts/cookies.js"></script>
     <script src="scripts/themes.js"></script>
     <script src="scripts/engines.js"></script>
@@ -24,19 +27,28 @@
       ></span>
       <div class="container">
         <div class="topBar">
-          <span>加</span
-          ><img
-            class="header_img"
-            src="img/leo.jpg"
-          /><span>油</span>
+          <span>加</span><img class="header_img" src="img/leo.jpg" /><span
+            >油</span
+          >
         </div>
         <span class="span-time"></span>
-        <div class="content">
+        <div class="content el-hidden el-hidden-true">
           <ul id="content"></ul>
           <div class="page-footer"></div>
         </div>
       </div>
-
+      <span
+        class="el-hidden"
+        style="
+          font-size: 2rem;
+          color: white;
+          position: absolute;
+          right: 1rem;
+          top: 1rem;
+        "
+      >
+        <i class="fa-solid fa-cog fa-spin"></i
+      ></span>
       <div class="drawer-settings" onclick="onClickEmpty()">
         <div class="setting-title">
           <span>背景颜色</span>

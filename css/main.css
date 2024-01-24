@@ -8,20 +8,15 @@ body {
 }
 * {
   box-sizing: border-box;
+  caret-color: transparent;
 }
 body {
   margin: 0px;
   padding: 0px;
   /* background-color:#052117; */
   background: linear-gradient(to right, blue, red);
-  transition: background-color 2s, background 2s;
+  /* transition: background-color 2s, background 2s; */
 }
-
-.content {
-  margin: auto;
-  width: 100vw;
-}
-
 @media screen and (min-width: 1200px) {
   .content {
     width: 70vw;
@@ -44,19 +39,17 @@ body {
   align-items: center;
 }
 .topBar span {
-  visibility: hidden;
+  opacity: 0;
   font-size: 4rem;
   display: block;
   color: white;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  caret-color: transparent;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   width: 4rem;
   line-height: 4rem;
   text-align: center;
   aspect-ratio: 1;
 }
-.span-time{
-  caret-color: transparent;
+.span-time {
   display: block;
   color: white;
   font-size: 2rem;
@@ -65,7 +58,6 @@ body {
   font-family: Courier, monospace;
 }
 .header_img {
-  caret-color: transparent;
   pointer-events: visible;
   display: block;
   border: 0.2rem solid rgb(255, 255, 255);
@@ -123,20 +115,17 @@ ul {
   flex-wrap: wrap;
   padding: 0.8rem;
 }
-.content{
+.content {
   transition: all 0.5s;
+  margin: auto;
+  /* display: none; */
 }
-@media screen and (max-width: 400px) {
-  ul {
-    grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
-    grid-gap: 0.8rem;
-  }
+.el-hidden {
+  display: block;
 }
-@media screen and (min-width: 500px) {
-  ul {
-    grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
-    grid-gap: 1.2rem;
-  }
+.el-hidden-true {
+  opacity: 0;
+  pointer-events: none;
 }
 .img_container {
   width: var(--itemSize);
@@ -200,12 +189,3 @@ ul {
   display: block;
   font-size: var(--textSizeWebName);
 }
-/* @media screen and (min-width: 1000px) {
-    body{
-        margin: 0px;
-        padding: 0px;
-        background-image: url(../img/wallhaven-j3orvy.jpg);
-        background-repeat: no-repeat;
-        background-size:cover;
-    }
-} */

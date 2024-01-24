@@ -3,30 +3,24 @@ window.addEventListener("load", (event) => {
   // logScreenInfo();
   showTime();
   let headerImage = document.querySelector(".header_img");
-  const content = document.querySelector("#content");
-  content.style.display = "none";
-  const words = document.querySelectorAll(".topBar span");
-  function setVisible(elements, visible) {
-    elements.forEach((el) => {
-      console.log(el);
+  const content = document.querySelector(".content");
+  const container = document.querySelector(".container");
+  const listHidden = document.querySelectorAll(".el-hidden");
+  const classHidden = "el-hidden-true";
+  function toggleVisible() {
+    for (el of listHidden) {
+      let visible = !el.classList.contains(classHidden);
       if (visible) {
-        el.style.visibility = "visible";
+        el.classList.add(classHidden);
       } else {
-        el.style.visibility = "hidden";
+        el.classList.remove(classHidden);
       }
-    });
-  }
-  setVisible(words, false);
-  headerImage.onclick = (event) => {
-    let isGone = content.style.display == "none";
-    if (isGone) {
-      content.style.display = "flex";
-      setVisible(words, true);
-    } else {
-      setVisible(words, false);
-      content.style.display = "none";
     }
+  }
+  headerImage.onclick = (event) => {
+    toggleVisible();
   };
+  let gridView = document.querySelector("#content");
   netConfig.forEach(function (value) {
     // console.log(value.net)
     // console.log(value.link)
@@ -40,7 +34,7 @@ window.addEventListener("load", (event) => {
                             <span class='item_span'>${value.net}</span>
                         </div>
                     </a>`;
-    content.append(nodeItem);
+    gridView.append(nodeItem);
   });
   //body click
   let drawer = document.querySelector(".drawer-settings");
