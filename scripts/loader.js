@@ -1,7 +1,10 @@
 let netConfig = configs.websites;
 window.addEventListener("load", (event) => {
   // logScreenInfo();
+  //时钟
   showTime();
+  //夜间模式
+  themeManager.setTheme();
   let headerImage = document.querySelector(".header_img");
   const content = document.querySelector(".content");
   const container = document.querySelector(".container");
