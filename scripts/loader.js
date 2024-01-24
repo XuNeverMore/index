@@ -50,9 +50,9 @@ window.addEventListener("load", (event) => {
   let bgColorEnd = docCookies.getItem("bgColorEnd");
   console.log("start:" + bgColorStart + ",end:" + bgColorEnd);
   document.querySelector("#bgcolor-start").value =
-    bgColorStart == null ? "#1E4B73" : bgColorStart;
+    bgColorStart == null ? "#0000FF" : bgColorStart;
   document.querySelector("#bgcolor-end").value =
-    bgColorEnd == null ? "#FFFFFF" : bgColorEnd;
+    bgColorEnd == null ? "#FF0000" : bgColorEnd;
   themeManager.applyLinearBgColor();
 });
 
