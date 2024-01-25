@@ -1,0 +1,93 @@
+/* 设置栏 */
+.settingBar {
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  top: 2rem;
+  right: 2rem;
+  --settingItemSize: 1.6rem;
+}
+
+.settingBar span {
+  font-size: var(--settingItemSize);
+  display: flex;
+}
+
+.settingBar span::before {
+  content: " ";
+  display: block;
+  width: 1rem;
+}
+
+.topBar {
+  padding-top: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.span-time {
+  display: block;
+  font-size: 2rem;
+  padding: 3rem 0rem;
+  text-align: center;
+  color: var(--surcaceColor);
+  font-family: Courier, monospace;
+  font-weight: 300;
+  transition: all 0.5s;
+}
+.topBar ~ .span-time {
+  margin: auto;
+}
+.topBar > .span-time {
+  min-width: 15rem;
+  font-weight: 100;
+}
+.topBar > .span-time:first-child {
+  text-align: end;
+  padding-right: 1rem;
+}
+.topBar > .span-time:last-child {
+  text-align: start;
+  padding-left: 1rem;
+}
+
+.header_img {
+  pointer-events: visible;
+  display: block;
+  height: 100%;
+  aspect-ratio: 1;
+  transition: all 0.4s;
+  scale: 1;
+}
+
+.header_img:hover {
+  scale: 1.1;
+}
+
+.header-outline {
+  border-radius: 50%;
+  border: 0.25rem solid var(--surcaceColor);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.header-wrapper {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  clip-path: circle(50%);
+  transition: all 0.5s;
+}
+
+.header-size-big {
+  height: var(--headerImageSize);
+}
+.header-size-small {
+  height: calc(var(--headerImageSize) / 2);
+}

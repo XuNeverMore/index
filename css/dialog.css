@@ -1,0 +1,10 @@
+.dialog-root {
+  border-radius: 1rem;
+  width: 80vw;
+}
+
+@media screen and (min-width: 1000px) {
+  .dialog-root {
+    width: 70vw;
+  }
+}

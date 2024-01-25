@@ -9,6 +9,7 @@ window.addEventListener("load", (event) => {
   const content = document.querySelector(".content");
   const container = document.querySelector(".container");
   const listHidden = document.querySelectorAll(".el-hidden");
+  const headerWrapper = document.querySelector(".header-wrapper");
   const classHidden = "el-hidden-true";
   function toggleVisible() {
     for (el of listHidden) {
@@ -18,6 +19,13 @@ window.addEventListener("load", (event) => {
       } else {
         el.classList.remove(classHidden);
       }
+    }
+    if (headerWrapper.classList.contains("header-size-big")) {
+      headerWrapper.classList.remove("header-size-big");
+      headerWrapper.classList.add("header-size-small");
+    } else {
+      headerWrapper.classList.add("header-size-big");
+      headerWrapper.classList.remove("header-size-small");
     }
   }
   headerImage.onclick = (event) => {
@@ -56,7 +64,7 @@ window.addEventListener("load", (event) => {
     bgColorStart == null ? "#0000FF" : bgColorStart;
   document.querySelector("#bgcolor-end").value =
     bgColorEnd == null ? "#FF0000" : bgColorEnd;
-  themeManager.applyLinearBgColor();
+  // themeManager.applyLinearBgColor();
 });
 
 function getCurrentTime() {
@@ -125,16 +133,23 @@ function logScreenInfo() {
 }
 
 function showTime() {
-  let timeSpan = document.querySelector(".span-time");
+  let timeSpan = document.querySelector("#text-full-time");
   timeSpan.innerHTML = formattedTime();
-
+  let textDate = document.querySelector("#text-date");
+  let textTime = document.querySelector("#text-time");
   setInterval(() => {
-    timeSpan.innerHTML = formattedTime();
+    let isFullTimeHidden = timeSpan.classList.contains("el-hidden-true");
+    let timeArray = formattedTime();
+    if (isFullTimeHidden) {
+      textDate.innerHTML = timeArray[0];
+      textTime.innerHTML = timeArray[1];
+    } else {
+      timeSpan.innerHTML = `${timeArray[0]} ${timeArray[1]}`;
+    }
   }, 1000);
 }
 function formattedTime() {
   var date = new Date();
-  var timestamp = date.getTime();
   var Y = date.getFullYear();
   var M =
     date.getMonth() + 1 < 10
@@ -144,7 +159,7 @@ function formattedTime() {
   var h = date.getHours();
   var m = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
   var s = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-  var yymmdd = Y + "-" + M + "-" + D;
-  var yymmddhhmmss = Y + "." + M + "." + D + " " + h + ":" + m + ":" + s;
-  return yymmddhhmmss;
+  var yymmdd = Y + "." + M + "." + D;
+  var hms = h + ":" + m + ":" + s;
+  return [yymmdd, hms];
 }
